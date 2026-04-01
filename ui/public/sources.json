@@ -408,11 +408,11 @@
         "owner": "Amanual, externí společnost na komunikaci"
       }
     ],
-    "Weby": [
+    "Weby development": [
       {
         "name": "Pult Tusarova",
         "amount": 150000.0,
-        "category": "Weby",
+        "category": "Weby development",
         "source": "budget",
         "description": "web a rozcestník",
         "owner": "Amanual, dodavatelé (SN, MW)"
@@ -420,7 +420,7 @@
       {
         "name": "Pizza - nový web",
         "amount": 150000.0,
-        "category": "Weby",
+        "category": "Weby development",
         "source": "budget",
         "description": "celý nový web včetně migrace, marketingu fotek, copy",
         "owner": "Amanual, dodavatelé (SN, MW)"
@@ -428,7 +428,7 @@
       {
         "name": "Kuchyně - facelift webu (refresh značky restaurce x zahrada)",
         "amount": 100000.0,
-        "category": "Weby",
+        "category": "Weby development",
         "source": "budget",
         "description": "úprava designu podle rozdělení brandu",
         "owner": "Amanual, dodavaelé (SN, MW)"
@@ -436,7 +436,7 @@
       {
         "name": "Dlouhá 4",
         "amount": 150000.0,
-        "category": "Weby",
+        "category": "Weby development",
         "source": "budget",
         "description": "nový web",
         "owner": "Amanual, dodavaelé (SN, MW)"
@@ -444,7 +444,7 @@
       {
         "name": "Myšák Na hradě",
         "amount": 150000.0,
-        "category": "Weby",
+        "category": "Weby development",
         "source": "budget",
         "description": "nový web",
         "owner": "Amanual, dodavaelé (SN, MW)"
@@ -452,7 +452,7 @@
       {
         "name": "Marie B a Vin de Marie - oddělení webů",
         "amount": 250000.0,
-        "category": "Weby",
+        "category": "Weby development",
         "source": "budget",
         "description": "Oddělení webů",
         "owner": "Dodavatelé (SN, MW)"
@@ -460,7 +460,7 @@
       {
         "name": "Pasta Fresca",
         "amount": 150000.0,
-        "category": "Weby",
+        "category": "Weby development",
         "source": "budget",
         "description": "celý nový web včetně migrace, marketingu fotek, copy",
         "owner": "Dodavatelé (S, MW)"
@@ -468,7 +468,7 @@
       {
         "name": "Pastacaffé",
         "amount": 150000.0,
-        "category": "Weby",
+        "category": "Weby development",
         "source": "budget",
         "description": "celý nový web včetně migrace, marketingu fotek, copy",
         "owner": "Dodavatelé (SN, MW)"
@@ -476,7 +476,7 @@
       {
         "name": "Webové úpravy - development",
         "amount": 30000.0,
-        "category": "Weby",
+        "category": "Weby development",
         "source": "budget",
         "description": "drobné úpravy - budget",
         "owner": "Dodavatelé (SN, MW)"
@@ -484,7 +484,7 @@
       {
         "name": "Lokál nový web",
         "amount": 250000.0,
-        "category": "Weby",
+        "category": "Weby development",
         "source": "budget",
         "description": "",
         "owner": "Dodavatele (SN, MW)"
@@ -492,7 +492,7 @@
       {
         "name": "Maximum o pivu",
         "amount": 70000.0,
-        "category": "Weby",
+        "category": "Weby development",
         "source": "budget",
         "description": "",
         "owner": "Dodavatelé (SN, MW)"
@@ -500,7 +500,7 @@
       {
         "name": "Brasileiro - Žába",
         "amount": 100000.0,
-        "category": "Weby",
+        "category": "Weby development",
         "source": "budget",
         "description": "úprava podle nového loga",
         "owner": "Amanual, dodavatele (SN, MW)"
@@ -508,7 +508,7 @@
       {
         "name": "Zapoj se II. fáze",
         "amount": 50000.0,
-        "category": "Weby",
+        "category": "Weby development",
         "source": "budget",
         "description": "úpravy II etapa",
         "owner": "Amanual, dodavatele (SN, MW)"
@@ -516,26 +516,10 @@
       {
         "name": "Kantýna",
         "amount": 150000.0,
-        "category": "Weby",
+        "category": "Weby development",
         "source": "budget",
         "description": "celý nový web včetně migrace, marketingu fotek, copy",
         "owner": "Amanual, dodavatele (SN, MW)"
-      },
-      {
-        "name": "webhosting",
-        "amount": 40000.0,
-        "category": "Weby",
-        "source": "budget",
-        "description": "odhad dle roku 2025",
-        "owner": "webglobe"
-      },
-      {
-        "name": "Vzdělávání - odhad",
-        "amount": 25000.0,
-        "category": "Weby",
-        "source": "budget",
-        "description": "??",
-        "owner": ""
       }
     ],
     "Věrnostní program": [
@@ -852,160 +836,72 @@
         "owner": ""
       }
     ],
-    "Provozní (AMBI)": [
+    "Weby správa": [
       {
-        "name": "Mailchimp",
-        "amount": 16770.0,
-        "category": "Provozní (AMBI)",
-        "source": "budget",
-        "description": "báze kontaktů",
-        "owner": ""
-      },
-      {
-        "name": "Smartemailing",
-        "amount": 12420.0,
-        "category": "Provozní (AMBI)",
-        "source": "budget",
-        "description": "báze kontaktů",
-        "owner": ""
-      },
-      {
-        "name": "Digital Ocean - databáze pro jídelní lístky",
-        "amount": 28792.8,
-        "category": "Provozní (AMBI)",
-        "source": "budget",
-        "description": "",
-        "owner": ""
-      },
-      {
-        "name": "Webglobe - domény, maily pro ambi.cz, hostingy",
-        "amount": 40000.0,
-        "category": "Provozní (AMBI)",
-        "source": "budget",
-        "description": "",
-        "owner": ""
-      },
-      {
-        "name": "Brandcloud",
-        "amount": 58900.0,
-        "category": "Provozní (AMBI)",
-        "source": "budget",
-        "description": "",
-        "owner": ""
-      },
-      {
-        "name": "Monitora - monitoring médií",
-        "amount": 61200.0,
-        "category": "Provozní (AMBI)",
-        "source": "budget",
-        "description": "",
-        "owner": ""
-      },
-      {
-        "name": "Cortex - Fidelity CRM",
-        "amount": 9900.0,
-        "category": "Provozní (AMBI)",
-        "source": "budget",
-        "description": "patří k věrnostnímu programu",
-        "owner": ""
-      },
-      {
-        "name": "T-mobile - číslo pro věrné hosty",
-        "amount": 351.0,
-        "category": "Provozní (AMBI)",
-        "source": "budget",
-        "description": "patří k věrnostnímu programu",
-        "owner": ""
-      },
-      {
-        "name": "ASW - provoz centrální banky",
-        "amount": 32000.0,
-        "category": "Provozní (AMBI)",
-        "source": "budget",
-        "description": "patří k věrnostnímu programu",
-        "owner": ""
-      },
-      {
-        "name": "Outscraper, Inc. - Nástroj na stahování google recenzí v rámci péče o hosty",
-        "amount": 150.0,
-        "category": "Provozní (AMBI)",
-        "source": "budget",
-        "description": "",
-        "owner": ""
-      },
-      {
-        "name": "Get Feedback Racino....",
-        "amount": 1075.45,
-        "category": "Provozní (AMBI)",
+        "name": "Weby správa",
+        "amount": 3294988.0,
+        "category": "Weby správa",
         "source": "budget",
         "description": "",
         "owner": ""
       }
     ],
-    "AF": [
+    "Vzducholodě": [
       {
-        "name": "Dlouhá 4",
-        "amount": 380000.0,
-        "category": "AF",
+        "name": "vzducholo´d I",
+        "amount": 1000000.0,
+        "category": "Vzducholodě",
         "source": "budget",
         "description": "",
-        "owner": "logo, brand"
-      },
-      {
-        "name": "Nový Lokál",
-        "amount": 170000.0,
-        "category": "AF",
-        "source": "budget",
-        "description": "",
-        "owner": "logo, brand"
-      },
-      {
-        "name": "Škola",
-        "amount": 380000.0,
-        "category": "AF",
-        "source": "budget",
-        "description": "",
-        "owner": "logo, brand"
-      },
-      {
-        "name": "Kuchyně",
-        "amount": 350000.0,
-        "category": "AF",
-        "source": "budget",
-        "description": "kalkulace SN - vznik 2 nových log (restaurace, zahrada)",
-        "owner": "SN"
-      },
-      {
-        "name": "Pult - rozpracování brand manuálu Pult (Tusarova, v Celnici)",
-        "amount": 50000.0,
-        "category": "AF",
-        "source": "budget",
-        "description": "",
-        "owner": "SN"
-      },
-      {
-        "name": "Instalace mosazných tabulek",
-        "amount": 15000.0,
-        "category": "AF",
-        "source": "budget",
-        "description": "nové podniky",
         "owner": ""
       },
       {
-        "name": "Playlisty - pro nové restaurace",
-        "amount": 150000.0,
-        "category": "AF",
+        "name": "vzducholo´d II",
+        "amount": 1860000.0,
+        "category": "Vzducholodě",
         "source": "budget",
-        "description": "postupně podle zájmu doplňujeme",
-        "owner": "A+manual"
-      },
+        "description": "",
+        "owner": ""
+      }
+    ],
+    "Systémy a databáze": [
       {
-        "name": "Revize značky Myšák - maloobchod",
-        "amount": 10000.0,
-        "category": "AF",
+        "name": "Systémy, databáze, BC...",
+        "amount": 181588.0,
+        "category": "Systémy a databáze",
         "source": "budget",
-        "description": "přesun z minulého roku",
-        "owner": "A+manual"
+        "description": "",
+        "owner": ""
+      }
+    ],
+    "Jídelní lístky": [
+      {
+        "name": "Jídelní listky",
+        "amount": 720454.0,
+        "category": "Jídelní lístky",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      }
+    ],
+    "Odpisy": [
+      {
+        "name": "Odpisy",
+        "amount": 281616.0,
+        "category": "Odpisy",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      }
+    ],
+    "Provozní (AMBI)": [
+      {
+        "name": "CO ZŮSTALO V AMBI CZ",
+        "amount": 215490.0,
+        "category": "Provozní (AMBI)",
+        "source": "budget",
+        "description": "",
+        "owner": ""
       }
     ]
   },
@@ -1135,7 +1031,7 @@
       }
     ]
   },
-  "budget_total": 12325799.25,
+  "budget_total": 10494240.0,
   "oak_total": 27271484.77,
   "oak_fee": 4908867.3,
   "overall_total": 50258728.3

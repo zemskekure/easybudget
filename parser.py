@@ -152,18 +152,24 @@ def _parse_brand(ws) -> list[SourceItem]:
 
 
 def _parse_weby(ws) -> list[SourceItem]:
+    """Parse WEBY sheet — only the development section (rows before WEBY SPRÁVA)."""
     items = []
     for row in ws.iter_rows(min_row=2, max_row=ws.max_row, values_only=True):
-        if len(row) < 3:
+        if len(row) < 1:
             continue
         name = _cell_str(row[0])
+        # Stop at WEBY SPRÁVA section — that's imported as a single line from CELKEM
+        if name and "WEBY SPRÁVA" in name.upper():
+            break
+        if len(row) < 3:
+            continue
         amount = _cell_float(row[2])
         if _is_header_or_total(name) or amount <= 0:
             continue
         owner = _cell_str(row[1]) if len(row) > 1 else ""
         desc = _cell_str(row[3]) if len(row) > 3 else ""
         items.append(SourceItem(
-            name=name, amount=amount, category="Weby",
+            name=name, amount=amount, category="Weby development",
             source="budget", description=desc, owner=owner,
         ))
     return items
@@ -312,8 +318,8 @@ def parse_latestmkt(path: str) -> list[SourceItem]:
         "BRANDOVÝ MRKTG.": _parse_brand,
         "WEBY": _parse_weby,
         "VP": _parse_vp,
-        "Co zůstalo v AMBI": _parse_ambi,
-        "AF": _parse_af,
+        # AF (Ambiente Franchise) is NOT in CELKEM MRKTG — it's franchise-funded
+        # "AF": _parse_af,
     }
     for sheet_name, fn in parsers.items():
         if sheet_name in wb.sheetnames:
@@ -407,7 +413,7 @@ def parse_all() -> dict:
 
     budget_total = sum(i.amount for i in budget_items)
 
-    # Get overall total + fee from CELKEM MRKTG sheet
+    # Get overall total + fee + missing items from CELKEM MRKTG sheet
     overall_total = budget_total + oak_official_total  # fallback
     oak_fee = 0.0
     if latestmkt_path:
@@ -425,6 +431,31 @@ def parse_all() -> dict:
                 if val > 0:
                     oak_fee = val
                 break
+
+            # Items from CELKEM MRKTG that have no detail sheet
+            # These are single-line items we add directly
+            STANDALONE_ITEMS = {
+                "vzducholo´d I": "Vzducholodě",
+                "vzducholo´d II": "Vzducholodě",
+                "Systémy, databáze, BC...": "Systémy a databáze",
+                "Jídelní listky": "Jídelní lístky",
+                "Odpisy": "Odpisy",
+                "Weby správa": "Weby správa",
+                "CO ZŮSTALO V AMBI CZ": "Provozní (AMBI)",
+            }
+            for row in ws.iter_rows(min_row=5, max_row=30, values_only=True):
+                name = _cell_str(row[0])
+                val = _cell_float(row[1])
+                if name in STANDALONE_ITEMS and val > 0:
+                    cat = STANDALONE_ITEMS[name]
+                    item = SourceItem(
+                        name=name, amount=val, category=cat,
+                        source="budget",
+                    )
+                    budget_items.append(item)
+                    if cat not in categories:
+                        categories[cat] = []
+                    categories[cat].append(asdict(item))
 
     return {
         "budget_categories": categories,
