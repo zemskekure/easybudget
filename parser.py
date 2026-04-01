@@ -407,8 +407,9 @@ def parse_all() -> dict:
 
     budget_total = sum(i.amount for i in budget_items)
 
-    # Get overall total from CELKEM MRKTG sheet (row 4, col B = NÁKLADY CELKEM)
+    # Get overall total + fee from CELKEM MRKTG sheet
     overall_total = budget_total + oak_official_total  # fallback
+    oak_fee = 0.0
     if latestmkt_path:
         wb = openpyxl.load_workbook(latestmkt_path, data_only=True)
         if "CELKEM MRKTG" in wb.sheetnames:
@@ -418,11 +419,18 @@ def parse_all() -> dict:
                 if val > 0:
                     overall_total = val
                 break
+            # Row 23 = 18% fee za správu Amanual
+            for row in ws.iter_rows(min_row=23, max_row=23, values_only=True):
+                val = _cell_float(row[1])
+                if val > 0:
+                    oak_fee = val
+                break
 
     return {
         "budget_categories": categories,
         "oak_categories": oak_categories,
         "budget_total": budget_total,
         "oak_total": oak_official_total,
+        "oak_fee": oak_fee,
         "overall_total": overall_total,
     }

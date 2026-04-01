@@ -7,6 +7,7 @@ interface Props {
   budgetCategories: Record<string, SourceItem[]>
   oakCategories: Record<string, SourceItem[]>
   oakTotal: number
+  oakFee: number
   planItems: PlanItem[]
 }
 
@@ -68,7 +69,7 @@ function CategorySection({
   )
 }
 
-export function SourcePanel({ budgetCategories, oakCategories, oakTotal, planItems }: Props) {
+export function SourcePanel({ budgetCategories, oakCategories, oakTotal, oakFee, planItems }: Props) {
   const planRefs = new Set(
     planItems.filter(p => p.sourceRef).map(p => p.sourceRef!)
   )
@@ -104,6 +105,35 @@ export function SourcePanel({ budgetCategories, oakCategories, oakTotal, planIte
             planRefs={planRefs}
           />
         ))}
+        {/* OaK Fee */}
+        {oakFee > 0 && (
+          <div className="px-3 pb-2">
+            <div
+              draggable
+              onDragStart={(e) => {
+                const feeItem = {
+                  name: '18% fee Amanual',
+                  amount: oakFee,
+                  category: 'OaK Fee',
+                  source: 'oak',
+                  description: '18% fee za správu agentury Amanual',
+                  owner: '',
+                }
+                e.dataTransfer.setData('application/json', JSON.stringify(feeItem))
+                e.dataTransfer.effectAllowed = 'copy'
+              }}
+              className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm cursor-grab active:cursor-grabbing transition-all
+                ${planRefs.has('OaK Fee::18% fee Amanual')
+                  ? 'bg-amber-50 text-amber-300 line-through'
+                  : 'bg-amber-50 border border-amber-200 text-amber-700 hover:border-amber-400 hover:shadow-sm'
+                }`}
+              title="18% fee za správu agentury Amanual"
+            >
+              <span>18% fee Amanual</span>
+              <span className="font-medium text-amber-600">{fmtFull(oakFee)} Kč</span>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Budget categories */}

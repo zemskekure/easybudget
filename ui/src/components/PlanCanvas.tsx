@@ -24,6 +24,7 @@ function PlanCategory({
   onRename,
   onDelete,
   onDropInto,
+  onMoveItem,
 }: {
   category: string
   items: PlanItem[]
@@ -32,6 +33,7 @@ function PlanCategory({
   onRename: (oldName: string, newName: string) => void
   onDelete: (category: string) => void
   onDropInto: (category: string, data: string) => void
+  onMoveItem: (itemId: string, toCategory: string) => void
 }) {
   const [open, setOpen] = useState(true)
   const [editing, setEditing] = useState(false)
@@ -61,6 +63,13 @@ function PlanCategory({
         e.preventDefault()
         e.stopPropagation()
         setDragOver(false)
+        // Internal move (plan item between categories)
+        const planItemId = e.dataTransfer.getData('application/x-plan-item')
+        if (planItemId) {
+          onMoveItem(planItemId, category)
+          return
+        }
+        // External drop (from source panel)
         const raw = e.dataTransfer.getData('application/json')
         if (raw) onDropInto(category, raw)
       }}
@@ -142,6 +151,8 @@ export function PlanCanvas({ items, onAdd, onUpdate, onRemove, onReset, onBulkUp
   function handleDrop(e: React.DragEvent) {
     e.preventDefault()
     setDragOver(false)
+    // Ignore internal moves that land on the canvas background
+    if (e.dataTransfer.getData('application/x-plan-item')) return
     try {
       const data = JSON.parse(e.dataTransfer.getData('application/json'))
       const sources: SourceItem[] = Array.isArray(data) ? data : [data]
@@ -290,6 +301,9 @@ export function PlanCanvas({ items, onAdd, onUpdate, onRemove, onReset, onBulkUp
                     })
                   }
                 } catch { /* ignore */ }
+              }}
+              onMoveItem={(itemId, toCategory) => {
+                onUpdate(itemId, { category: toCategory })
               }}
             />
           ))

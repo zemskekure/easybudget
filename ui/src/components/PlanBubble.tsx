@@ -44,7 +44,14 @@ export function PlanBubble({ item, onUpdate, onRemove }: Props) {
   }
 
   return (
-    <div className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-sm transition-all duration-150 hover:shadow-sm">
+    <div
+      draggable={!editing}
+      onDragStart={(e) => {
+        e.dataTransfer.setData('application/x-plan-item', item.id)
+        e.dataTransfer.effectAllowed = 'move'
+      }}
+      className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-sm transition-all duration-150 hover:shadow-sm cursor-grab active:cursor-grabbing"
+    >
       {/* Name */}
       {editing === 'name' ? (
         <input

@@ -21,6 +21,7 @@ export interface SourceData {
   oak_categories: Record<string, SourceItem[]>
   budget_total: number
   oak_total: number
+  oak_fee: number
   overall_total: number
 }
 
