@@ -12,6 +12,7 @@ from parser import parse_all
 PORT = 8600
 BASE = os.path.dirname(os.path.abspath(__file__))
 PLAN_FILE = os.path.join(BASE, "data", "plan.json")
+TRACKING_FILE = os.path.join(BASE, "data", "tracking.json")
 
 
 def load_plan() -> list[dict]:
@@ -26,6 +27,18 @@ def save_plan(items: list[dict]) -> None:
         json.dump(items, f, ensure_ascii=False, indent=2)
 
 
+def load_tracking() -> dict:
+    if os.path.exists(TRACKING_FILE):
+        with open(TRACKING_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    return {"incomeEstimate": 0, "monthlyIncome": {}, "monthlyActuals": {}}
+
+
+def save_tracking(data: dict) -> None:
+    with open(TRACKING_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
 class Handler(http.server.SimpleHTTPRequestHandler):
 
     _source_cache: dict | None = None
@@ -37,6 +50,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self._json(Handler._source_cache)
         elif self.path == "/api/plan":
             self._json(load_plan())
+        elif self.path == "/api/tracking":
+            self._json(load_tracking())
         else:
             self.send_error(404)
 
@@ -70,6 +85,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                     new_plan.append(p)
             save_plan(new_plan)
             self._json({"ok": True, "items": new_plan})
+        elif self.path == "/api/tracking":
+            save_tracking(body)
+            self._json({"ok": True})
         elif self.path == "/api/sources/refresh":
             Handler._source_cache = parse_all()
             self._json(Handler._source_cache)

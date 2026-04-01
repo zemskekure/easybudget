@@ -23,6 +23,7 @@ function PlanCategory({
   onRemove,
   onRename,
   onDelete,
+  onDropInto,
 }: {
   category: string
   items: PlanItem[]
@@ -30,10 +31,12 @@ function PlanCategory({
   onRemove: (id: string) => void
   onRename: (oldName: string, newName: string) => void
   onDelete: (category: string) => void
+  onDropInto: (category: string, data: string) => void
 }) {
   const [open, setOpen] = useState(true)
   const [editing, setEditing] = useState(false)
   const [editValue, setEditValue] = useState(category)
+  const [dragOver, setDragOver] = useState(false)
   const total = items.reduce((s, i) => s + i.amount, 0)
 
   function commitRename() {
@@ -50,7 +53,18 @@ function PlanCategory({
   }
 
   return (
-    <div className="mb-3 group/cat">
+    <div
+      className={`mb-3 group/cat rounded-lg transition-colors ${dragOver ? 'bg-emerald-50 ring-1 ring-emerald-300' : ''}`}
+      onDragOver={(e) => { e.preventDefault(); e.stopPropagation(); setDragOver(true) }}
+      onDragLeave={() => setDragOver(false)}
+      onDrop={(e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        setDragOver(false)
+        const raw = e.dataTransfer.getData('application/json')
+        if (raw) onDropInto(category, raw)
+      }}
+    >
       <div className="flex items-center">
         <button
           onClick={() => setOpen(!open)}
@@ -261,6 +275,21 @@ export function PlanCanvas({ items, onAdd, onUpdate, onRemove, onReset, onBulkUp
               onDelete={(cat) => {
                 const ids = catItems.map(i => i.id)
                 onBulkRemove(ids)
+              }}
+              onDropInto={(targetCategory, raw) => {
+                try {
+                  const data = JSON.parse(raw)
+                  const sources: SourceItem[] = Array.isArray(data) ? data : [data]
+                  for (const source of sources) {
+                    onAdd({
+                      name: source.name,
+                      amount: source.amount,
+                      note: source.description || '',
+                      category: targetCategory,
+                      sourceRef: `${source.category}::${source.name}`,
+                    })
+                  }
+                } catch { /* ignore */ }
               }}
             />
           ))

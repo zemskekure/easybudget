@@ -1,6 +1,7 @@
-import type { SourceData, PlanItem } from './types'
+import type { SourceData, PlanItem, TrackingData } from './types'
 
 const STORAGE_KEY = 'easybudget-plan'
+const TRACKING_KEY = 'easybudget-tracking'
 
 function loadLocalPlan(): PlanItem[] {
   try {
@@ -75,6 +76,34 @@ async function postPlan(path: string, body: unknown): Promise<{ ok: boolean; ite
   return { ok: true, items: plan }
 }
 
+function loadLocalTracking(): TrackingData {
+  try {
+    const raw = localStorage.getItem(TRACKING_KEY)
+    return raw ? JSON.parse(raw) : { incomeEstimate: 0, monthlyIncome: {}, monthlyActuals: {} }
+  } catch {
+    return { incomeEstimate: 0, monthlyIncome: {}, monthlyActuals: {} }
+  }
+}
+
+async function fetchTracking(): Promise<TrackingData> {
+  try {
+    const res = await fetch('/api/tracking')
+    if (res.ok) return res.json()
+  } catch { /* backend not available */ }
+  return loadLocalTracking()
+}
+
+async function saveTracking(data: TrackingData): Promise<void> {
+  localStorage.setItem(TRACKING_KEY, JSON.stringify(data))
+  try {
+    await fetch('/api/tracking', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+  } catch { /* backend not available */ }
+}
+
 export const api = {
   sources: fetchSources,
   plan: fetchPlan,
@@ -86,4 +115,6 @@ export const api = {
     postPlan('/plan/update', { id, updates }),
   savePlan: (items: PlanItem[]) =>
     postPlan('/plan', { items }),
+  tracking: fetchTracking,
+  saveTracking,
 }
