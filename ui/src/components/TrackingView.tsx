@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import type { PlanItem, TrackingData } from '../lib/types'
+import { MONTHS, MONTH_LABELS } from '../lib/types'
 import { fmtFull } from '../lib/format'
 
 interface Props {
@@ -63,6 +64,7 @@ function Diff({ estimate, actual }: { estimate: number; actual: number }) {
 
 export function TrackingView({ plan, tracking, onTrackingChange }: Props) {
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({})
+  const [selectedMonth, setSelectedMonth] = useState<string | 'all'>('all')
 
   const grouped: Record<string, PlanItem[]> = {}
   for (const item of plan) {
@@ -71,30 +73,84 @@ export function TrackingView({ plan, tracking, onTrackingChange }: Props) {
     grouped[cat].push(item)
   }
 
-  // Sum all actuals for an item (across all months)
+  // Get actual for an item — either for selected month or total
   function getItemActual(id: string) {
+    const m = tracking.monthlyActuals[id]
+    if (!m) return 0
+    if (selectedMonth === 'all') return Object.values(m).reduce((s, v) => s + v, 0)
+    return m[selectedMonth] ?? 0
+  }
+
+  // Get total across ALL months (for the progress bar even when viewing a single month)
+  function getItemTotalActual(id: string) {
     const m = tracking.monthlyActuals[id]
     return m ? Object.values(m).reduce((s, v) => s + v, 0) : 0
   }
 
   function setItemActual(id: string, value: number) {
-    // Store as a single "total" entry for simplicity
+    const month = selectedMonth === 'all' ? 'total' : selectedMonth
     const a = { ...tracking.monthlyActuals }
-    a[id] = { total: value }
+    a[id] = { ...(a[id] || {}), [month]: value }
     onTrackingChange({ ...tracking, monthlyActuals: a })
   }
 
+  function getIncomeActual() {
+    if (selectedMonth === 'all') return Object.values(tracking.monthlyIncome).reduce((s, v) => s + v, 0)
+    return tracking.monthlyIncome[selectedMonth] ?? 0
+  }
+
   function setIncomeActual(value: number) {
-    onTrackingChange({ ...tracking, monthlyIncome: { total: value } })
+    const month = selectedMonth === 'all' ? 'total' : selectedMonth
+    onTrackingChange({ ...tracking, monthlyIncome: { ...tracking.monthlyIncome, [month]: value } })
+  }
+
+  // Check which months have any data
+  function monthHasData(m: string) {
+    if ((tracking.monthlyIncome[m] ?? 0) > 0) return true
+    return plan.some(i => (tracking.monthlyActuals[i.id]?.[m] ?? 0) > 0)
   }
 
   const incomeEstimate = tracking.incomeEstimate
-  const incomeActual = Object.values(tracking.monthlyIncome).reduce((s, v) => s + v, 0)
+  const incomeActual = getIncomeActual()
   const spendEstimate = plan.reduce((s, i) => s + i.amount, 0)
   const spendActual = plan.reduce((s, i) => s + getItemActual(i.id), 0)
+  const realitaLabel = selectedMonth === 'all' ? 'Realita celkem' : `Realita ${MONTH_LABELS[selectedMonth]}`
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
+
+      {/* === MONTH SELECTOR === */}
+      <div className="bg-white rounded-2xl border border-slate-200 px-6 py-4">
+        <div className="flex items-center gap-2 flex-wrap">
+          <button
+            onClick={() => setSelectedMonth('all')}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
+              selectedMonth === 'all'
+                ? 'bg-slate-800 text-white shadow-sm'
+                : 'bg-slate-50 text-slate-500 hover:bg-slate-100'
+            }`}
+          >
+            Celkem
+          </button>
+          <div className="w-px h-6 bg-slate-200 mx-1" />
+          {MONTHS.map(m => {
+            const hasData = monthHasData(m)
+            return (
+              <button key={m} onClick={() => setSelectedMonth(m)}
+                className={`px-3 py-2 rounded-xl text-sm font-medium transition-all ${
+                  m === selectedMonth
+                    ? 'bg-emerald-500 text-white shadow-sm'
+                    : hasData
+                      ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
+                      : 'bg-slate-50 text-slate-400 hover:bg-slate-100'
+                }`}
+              >
+                {MONTH_LABELS[m]}
+              </button>
+            )
+          })}
+        </div>
+      </div>
 
       {/* === TOP: INCOME === */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
@@ -108,7 +164,7 @@ export function TrackingView({ plan, tracking, onTrackingChange }: Props) {
             <div className="text-lg font-bold text-slate-700">{fmtFull(incomeEstimate)}</div>
           </div>
           <div className="text-right">
-            <div className="text-xs text-slate-400 mb-1">Realita</div>
+            <div className="text-xs text-slate-400 mb-1">{realitaLabel}</div>
             <div className="text-lg font-bold text-blue-600">
               <Editable value={incomeActual} onCommit={setIncomeActual} className="text-lg font-bold text-blue-600" />
             </div>
@@ -135,7 +191,7 @@ export function TrackingView({ plan, tracking, onTrackingChange }: Props) {
             <div className="text-lg font-bold text-slate-700">{fmtFull(spendEstimate)}</div>
           </div>
           <div className="text-right">
-            <div className="text-xs text-slate-400 mb-1">Realita</div>
+            <div className="text-xs text-slate-400 mb-1">{realitaLabel}</div>
             <div className="text-lg font-bold text-emerald-600">{spendActual > 0 ? fmtFull(spendActual) : '—'}</div>
           </div>
           <div className="text-right">
@@ -152,6 +208,7 @@ export function TrackingView({ plan, tracking, onTrackingChange }: Props) {
       {Object.entries(grouped).map(([category, catItems]) => {
         const catEst = catItems.reduce((s, i) => s + i.amount, 0)
         const catActual = catItems.reduce((s, i) => s + getItemActual(i.id), 0)
+        const catTotalActual = catItems.reduce((s, i) => s + getItemTotalActual(i.id), 0)
         const isOpen = !collapsed[category]
 
         return (
@@ -168,7 +225,7 @@ export function TrackingView({ plan, tracking, onTrackingChange }: Props) {
                   <span className="text-xs text-slate-400">{catItems.length} pol.</span>
                 </div>
                 <div className="mt-2 ml-6">
-                  <Bar value={catActual} max={catEst} />
+                  <Bar value={catTotalActual} max={catEst} />
                 </div>
               </div>
               <div className="grid grid-cols-[160px_160px_120px] gap-4 text-right shrink-0">
@@ -185,7 +242,7 @@ export function TrackingView({ plan, tracking, onTrackingChange }: Props) {
                 <div className="grid grid-cols-[1fr_160px_160px_120px] gap-4 px-6 py-2 bg-slate-50/50">
                   <div className="text-xs text-slate-400 pl-6">Položka</div>
                   <div className="text-xs text-slate-400 text-right">Odhad</div>
-                  <div className="text-xs text-slate-400 text-right">Realita</div>
+                  <div className="text-xs text-slate-400 text-right">{realitaLabel}</div>
                   <div className="text-xs text-slate-400 text-right">Rozdíl</div>
                 </div>
 
