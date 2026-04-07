@@ -117,7 +117,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
 
     def log_message(self, fmt, *args):
-        msg = args[0] if args else ""
+        msg = str(args[0]) if args else ""
         if "/api/" in msg or "POST" in msg:
             super().log_message(fmt, *args)
 

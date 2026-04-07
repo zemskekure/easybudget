@@ -5,8 +5,9 @@ import { TotalBar } from './components/TotalBar'
 import { SourcePanel } from './components/SourcePanel'
 import { PlanCanvas } from './components/PlanCanvas'
 import { TrackingView } from './components/TrackingView'
+import { DashboardView } from './components/DashboardView'
 
-type Tab = 'builder' | 'tracking'
+type Tab = 'builder' | 'tracking' | 'dashboard'
 
 export default function App() {
   const [tab, setTab] = useState<Tab>('builder')
@@ -109,6 +110,16 @@ export default function App() {
           >
             Sledování
           </button>
+          <button
+            onClick={() => setTab('dashboard')}
+            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
+              tab === 'dashboard'
+                ? 'border-emerald-500 text-emerald-700'
+                : 'border-transparent text-slate-400 hover:text-slate-600'
+            }`}
+          >
+            Dashboard
+          </button>
         </div>
       </div>
 
@@ -165,7 +176,7 @@ export default function App() {
             </div>
           )}
         </div>
-      ) : (
+      ) : tab === 'tracking' ? (
         <div className="flex-1 overflow-auto p-6">
           {plan.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-slate-300">
@@ -178,6 +189,14 @@ export default function App() {
               onTrackingChange={handleTrackingChange}
             />
           )}
+        </div>
+      ) : (
+        <div className="flex-1 overflow-auto p-6">
+          <DashboardView
+            items={plan}
+            sources={sources}
+            tracking={tracking}
+          />
         </div>
       )}
     </div>
