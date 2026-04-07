@@ -37,7 +37,17 @@ async function fetchPlan(): Promise<PlanItem[]> {
     const res = await fetch('/api/plan')
     if (res.ok) return res.json()
   } catch { /* backend not available */ }
-  return loadLocalPlan()
+  // Try localStorage first, then static fallback
+  const local = loadLocalPlan()
+  if (local.length > 0) return local
+  try {
+    const res = await fetch(`${import.meta.env.BASE_URL}plan.json`)
+    if (res.ok) {
+      const items: PlanItem[] = await res.json()
+      if (items.length > 0) return items
+    }
+  } catch { /* static file not available */ }
+  return []
 }
 
 async function postPlan(path: string, body: unknown): Promise<{ ok: boolean; items: PlanItem[] }> {
