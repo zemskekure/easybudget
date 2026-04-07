@@ -10,7 +10,7 @@ import { DashboardView } from './components/DashboardView'
 type Tab = 'builder' | 'tracking' | 'dashboard'
 
 export default function App() {
-  const [tab, setTab] = useState<Tab>('builder')
+  const [tab, setTab] = useState<Tab>('dashboard')
   const [showLeft, setShowLeft] = useState(true)
   const [showRight, setShowRight] = useState(true)
   const [sources, setSources] = useState<SourceData | null>(null)
@@ -91,6 +91,16 @@ export default function App() {
       <div className="bg-white border-b border-slate-200 px-8">
         <div className="flex gap-1">
           <button
+            onClick={() => setTab('dashboard')}
+            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
+              tab === 'dashboard'
+                ? 'border-emerald-500 text-emerald-700'
+                : 'border-transparent text-slate-400 hover:text-slate-600'
+            }`}
+          >
+            Dashboard
+          </button>
+          <button
             onClick={() => setTab('builder')}
             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
               tab === 'builder'
@@ -109,16 +119,6 @@ export default function App() {
             }`}
           >
             Sledování
-          </button>
-          <button
-            onClick={() => setTab('dashboard')}
-            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
-              tab === 'dashboard'
-                ? 'border-emerald-500 text-emerald-700'
-                : 'border-transparent text-slate-400 hover:text-slate-600'
-            }`}
-          >
-            Dashboard
           </button>
         </div>
       </div>
