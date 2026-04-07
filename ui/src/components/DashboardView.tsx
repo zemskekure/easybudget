@@ -426,7 +426,17 @@ function DonutChart({ categories, total, hoveredCat, onHover }: {
   const strokeWidth = 28
   const radius = (size - strokeWidth) / 2
   const circumference = 2 * Math.PI * radius
-  let offset = 0
+
+  // Precompute arc offsets
+  const arcs = categories.reduce<{ cat: CategoryStat; dashLen: number; dashOffset: number }[]>(
+    (acc, cat) => {
+      const pct = total > 0 ? cat.amount / total : 0
+      const dashLen = pct * circumference
+      const prevOffset = acc.length > 0 ? acc[acc.length - 1].dashOffset + acc[acc.length - 1].dashLen : 0
+      return [...acc, { cat, dashLen, dashOffset: prevOffset }]
+    },
+    [],
+  )
 
   return (
     <div className="relative shrink-0" style={{ width: size, height: size }}>
@@ -437,11 +447,7 @@ function DonutChart({ categories, total, hoveredCat, onHover }: {
           fill="none" stroke="#f1f5f9" strokeWidth={strokeWidth}
         />
         {/* Category arcs */}
-        {categories.map(cat => {
-          const pct = total > 0 ? cat.amount / total : 0
-          const dashLen = pct * circumference
-          const dashOffset = -offset
-          offset += dashLen
+        {arcs.map(({ cat, dashLen, dashOffset }) => {
           const isHovered = hoveredCat === cat.name
           return (
             <circle
@@ -451,7 +457,8 @@ function DonutChart({ categories, total, hoveredCat, onHover }: {
               stroke={cat.color}
               strokeWidth={isHovered ? strokeWidth + 6 : strokeWidth}
               strokeDasharray={`${dashLen} ${circumference - dashLen}`}
-              strokeDashoffset={dashOffset}
+              strokeDashoffset={-dashOffset}
+              strokeLinecap="butt"
               className="transition-all duration-300 cursor-pointer"
               style={{ opacity: hoveredCat && !isHovered ? 0.35 : 1 }}
               onMouseEnter={() => onHover(cat.name)}
