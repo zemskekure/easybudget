@@ -1,0 +1,1038 @@
+{
+  "budget_categories": {
+    "RM Ambiente": [
+      {
+        "name": "Pizza Nuova - spodní část Café bar + celá restaurace",
+        "amount": 200000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "grafické úpravy",
+        "owner": "Amanual, SN"
+      },
+      {
+        "name": "Café Savoy",
+        "amount": 100000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "grafické úpravy",
+        "owner": "Amanual, SN"
+      },
+      {
+        "name": "Bufet",
+        "amount": 100000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "grafické úpravy",
+        "owner": "Amanual, SN"
+      },
+      {
+        "name": "Kuchyně - rozdělení brandu?",
+        "amount": 150000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "facelift grafických materiálů spojených s oddělením",
+        "owner": "Amanual, SN"
+      },
+      {
+        "name": "Koncept nových webů",
+        "amount": 500000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "včetně jídelních lístků, formulářů hodnocení, design, weby, programování",
+        "owner": "Dodavatelé"
+      },
+      {
+        "name": "Rohlík",
+        "amount": 350000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "individuální spolupráce",
+        "owner": "placená podpora"
+      },
+      {
+        "name": "Košík.sk",
+        "amount": 150000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "rozmyslíme",
+        "owner": "podpora prodeje"
+      },
+      {
+        "name": "Podpora prodeje",
+        "amount": 50000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "rezerva",
+        "owner": "Amanual, kreativa, komunikace"
+      },
+      {
+        "name": "Ambiente maloobchod",
+        "amount": 50000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "podpora v místě prodeje",
+        "owner": "Amanual, kreativa, komunikace"
+      },
+      {
+        "name": "Strategie maloobchodu - rozpracování \"obchod Ambiente doma\"",
+        "amount": 200000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "",
+        "owner": "Amanual, kreativa, komunikace"
+      },
+      {
+        "name": "Chef Grade - rozvoj značky skrz produkty",
+        "amount": 80000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "nové produkty: hořčice, olej",
+        "owner": "Amanual, kreativa, komunikace"
+      },
+      {
+        "name": "Videa - natáčení kuchařských postupů",
+        "amount": 50000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "",
+        "owner": "Amanual, kreativa, komunikace"
+      },
+      {
+        "name": "Tiskové materiály",
+        "amount": 70000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "prostor pro akce v UMu",
+        "owner": "Grafika"
+      },
+      {
+        "name": "Matcha",
+        "amount": 100000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "",
+        "owner": "Amanual, kreativa, komunikace"
+      },
+      {
+        "name": "Rezerva na vzdělávací materiály",
+        "amount": 50000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "",
+        "owner": "Grafika"
+      },
+      {
+        "name": "Sběratelské kartičky",
+        "amount": 80000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "Grafika doprovodných tiskovin a komunikace",
+        "owner": "Amanual, kreativa, komunikace"
+      },
+      {
+        "name": "Sběratelské kartičky",
+        "amount": 45000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "1000 ks á 45 Kč - odhad",
+        "owner": "náklady na rozdané karty zdarma"
+      },
+      {
+        "name": "Vzorky pro SN",
+        "amount": 20000.0,
+        "category": "RM Ambiente",
+        "source": "budget",
+        "description": "",
+        "owner": "Výroba vzorků do archivu"
+      }
+    ],
+    "RM Lokály": [
+      {
+        "name": "Lokál suroviny",
+        "amount": 300000.0,
+        "category": "RM Lokály",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Rozvoj IP a podpora",
+        "amount": 100000.0,
+        "category": "RM Lokály",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "BTCW",
+        "amount": 200000.0,
+        "category": "RM Lokály",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Kampaně k podpoře produktů",
+        "amount": 50000.0,
+        "category": "RM Lokály",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Reporting pro Gms",
+        "amount": 15000.0,
+        "category": "RM Lokály",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Nový Lokál",
+        "amount": 30000.0,
+        "category": "RM Lokály",
+        "source": "budget",
+        "description": "200 000",
+        "owner": ""
+      },
+      {
+        "name": "konzultace, grafika",
+        "amount": 100000.0,
+        "category": "RM Lokály",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      }
+    ],
+    "RM Aretail": [
+      {
+        "name": "Strategie maloobchod",
+        "amount": 100000.0,
+        "category": "RM Aretail",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Drobné požadavky na agenturu",
+        "amount": 50000.0,
+        "category": "RM Aretail",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "maloobchod (v rámci Ambiente)",
+        "amount": 150000.0,
+        "category": "RM Aretail",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "mapa/selling points Ambi doma",
+        "amount": 50000.0,
+        "category": "RM Aretail",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "podpora komunikace v místě prodeje",
+        "amount": 50000.0,
+        "category": "RM Aretail",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "strategie",
+        "amount": 50000.0,
+        "category": "RM Aretail",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      }
+    ],
+    "Brand": [
+      {
+        "name": "Nové pohlednice - rezerva na grafiky",
+        "amount": 150000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "prostor pro development pohledů",
+        "owner": "Dodavatelé (Amanual)"
+      },
+      {
+        "name": "Oběd pro dalšho",
+        "amount": 5000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "",
+        "owner": "Dodavatelé (Amanual, SN)"
+      },
+      {
+        "name": "Mapa Ambiente - výroba a aktualizace dat",
+        "amount": 100000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "update o nové provozovny, dotisky",
+        "owner": "Dodavatelé (Amanual, SN)"
+      },
+      {
+        "name": "Tucňák",
+        "amount": 10000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "",
+        "owner": "Dodavatele (Amanual, SN)"
+      },
+      {
+        "name": "Vysvědčení",
+        "amount": 10000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "",
+        "owner": "Dodavatele (Amanual, SN)"
+      },
+      {
+        "name": "Zapoj se - plakáty",
+        "amount": 2000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "",
+        "owner": "Dodavatelé (SN, Amanual)"
+      },
+      {
+        "name": "Burger service - vývoj grafiky a nastavení fastfoodové komuniace",
+        "amount": 100000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "pokračujeme v nastavení komunikace",
+        "owner": "Dodavatelé (Amanual, SN)"
+      },
+      {
+        "name": "Obalový development",
+        "amount": 200000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "prostor pro vzorky, vývoj obalů",
+        "owner": "Dodavatelé"
+      },
+      {
+        "name": "Podpora restauracím - grafický vývoj",
+        "amount": 100000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "prostor pro tvorbu grafiky nových materiálů v provozech",
+        "owner": "Dodavatelé (SN, Amanual)"
+      },
+      {
+        "name": "Dopracování faceliftu identity Ambiente",
+        "amount": 70000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "Komunikační a obalové materiály",
+        "owner": "SN"
+      },
+      {
+        "name": "Mikuláš",
+        "amount": 10000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "tisk plakátů",
+        "owner": "Amanual"
+      },
+      {
+        "name": "Fotografové",
+        "amount": 100000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "budget na nové fotky",
+        "owner": "update fotek"
+      },
+      {
+        "name": "Půlitry - bude ještě něco k tomu?",
+        "amount": 50000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "nečekané projekty",
+        "owner": "Dodavatelé"
+      },
+      {
+        "name": "Facelift webu Zapoj se",
+        "amount": 250000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "odhad Jan Č",
+        "owner": ""
+      },
+      {
+        "name": "Limitovaná dárková poukázka Kapr",
+        "amount": 100000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "kreativa, vzorkování (výroba je klub)",
+        "owner": "Dodavatelé (SN....)"
+      },
+      {
+        "name": "Grafické návrhy nového merche  2026",
+        "amount": 50000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "design a vzorování",
+        "owner": "Dodavatelé (SN....)"
+      },
+      {
+        "name": "Desky s kaprem 2026 a grafika nových kapřích tiskovin",
+        "amount": 70000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "design a vzorování",
+        "owner": "Dodavatelé (SN....)"
+      },
+      {
+        "name": "Autor - nový kapr honorář",
+        "amount": 80000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "druhý Bačák",
+        "owner": "honorář"
+      },
+      {
+        "name": "Kapr jako umělecké dílo + komunikace",
+        "amount": 50000.0,
+        "category": "Brand",
+        "source": "budget",
+        "description": "kreativní zamyšlení nad komnikací kapra jako uměleckého díla",
+        "owner": "Amanual, externí společnost na komunikaci"
+      }
+    ],
+    "Weby development": [
+      {
+        "name": "Pult Tusarova",
+        "amount": 150000.0,
+        "category": "Weby development",
+        "source": "budget",
+        "description": "web a rozcestník",
+        "owner": "Amanual, dodavatelé (SN, MW)"
+      },
+      {
+        "name": "Pizza - nový web",
+        "amount": 150000.0,
+        "category": "Weby development",
+        "source": "budget",
+        "description": "celý nový web včetně migrace, marketingu fotek, copy",
+        "owner": "Amanual, dodavatelé (SN, MW)"
+      },
+      {
+        "name": "Kuchyně - facelift webu (refresh značky restaurce x zahrada)",
+        "amount": 100000.0,
+        "category": "Weby development",
+        "source": "budget",
+        "description": "úprava designu podle rozdělení brandu",
+        "owner": "Amanual, dodavaelé (SN, MW)"
+      },
+      {
+        "name": "Dlouhá 4",
+        "amount": 150000.0,
+        "category": "Weby development",
+        "source": "budget",
+        "description": "nový web",
+        "owner": "Amanual, dodavaelé (SN, MW)"
+      },
+      {
+        "name": "Myšák Na hradě",
+        "amount": 150000.0,
+        "category": "Weby development",
+        "source": "budget",
+        "description": "nový web",
+        "owner": "Amanual, dodavaelé (SN, MW)"
+      },
+      {
+        "name": "Marie B a Vin de Marie - oddělení webů",
+        "amount": 250000.0,
+        "category": "Weby development",
+        "source": "budget",
+        "description": "Oddělení webů",
+        "owner": "Dodavatelé (SN, MW)"
+      },
+      {
+        "name": "Pasta Fresca",
+        "amount": 150000.0,
+        "category": "Weby development",
+        "source": "budget",
+        "description": "celý nový web včetně migrace, marketingu fotek, copy",
+        "owner": "Dodavatelé (S, MW)"
+      },
+      {
+        "name": "Pastacaffé",
+        "amount": 150000.0,
+        "category": "Weby development",
+        "source": "budget",
+        "description": "celý nový web včetně migrace, marketingu fotek, copy",
+        "owner": "Dodavatelé (SN, MW)"
+      },
+      {
+        "name": "Webové úpravy - development",
+        "amount": 30000.0,
+        "category": "Weby development",
+        "source": "budget",
+        "description": "drobné úpravy - budget",
+        "owner": "Dodavatelé (SN, MW)"
+      },
+      {
+        "name": "Lokál nový web",
+        "amount": 250000.0,
+        "category": "Weby development",
+        "source": "budget",
+        "description": "",
+        "owner": "Dodavatele (SN, MW)"
+      },
+      {
+        "name": "Maximum o pivu",
+        "amount": 70000.0,
+        "category": "Weby development",
+        "source": "budget",
+        "description": "",
+        "owner": "Dodavatelé (SN, MW)"
+      },
+      {
+        "name": "Brasileiro - Žába",
+        "amount": 100000.0,
+        "category": "Weby development",
+        "source": "budget",
+        "description": "úprava podle nového loga",
+        "owner": "Amanual, dodavatele (SN, MW)"
+      },
+      {
+        "name": "Zapoj se II. fáze",
+        "amount": 50000.0,
+        "category": "Weby development",
+        "source": "budget",
+        "description": "úpravy II etapa",
+        "owner": "Amanual, dodavatele (SN, MW)"
+      },
+      {
+        "name": "Kantýna",
+        "amount": 150000.0,
+        "category": "Weby development",
+        "source": "budget",
+        "description": "celý nový web včetně migrace, marketingu fotek, copy",
+        "owner": "Amanual, dodavatele (SN, MW)"
+      }
+    ],
+    "Věrnostní program": [
+      {
+        "name": "Cortex - Fidelity (1x měsíc)",
+        "amount": 118800.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Cortex - občasný zásah, úpravy, čištění databáze",
+        "amount": 40000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "T-Mobile - telefon věrný host",
+        "amount": 4212.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Česká pošta",
+        "amount": 3600.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "webhosting moje.ambi.cz (ročně)",
+        "amount": 3600.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "report hodnocení hostů - stahování dat",
+        "amount": 3000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "digitalizace věrnostní karty - pravidelné platby (ročně hosting)",
+        "amount": 24000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "digitalizace věrnostní karty - pravidelné platby (ročně certifikace Wallet pass)",
+        "amount": 15600.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Google Maps Riviews",
+        "amount": 1800.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "DP_Marketing sdílený",
+        "amount": 66000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Andweb - občasný nutný zásah k Wallet projektu",
+        "amount": 24000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "ASW -provoz centrální banky kvartálně",
+        "amount": 150000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "ASW - občasný nutný zásah",
+        "amount": 36000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Obálky",
+        "amount": 10000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "DTP činnost",
+        "amount": 8000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Rozvoj s ASW (úpravy v centrální bance, programování)",
+        "amount": 160000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Projekt Dashboard pro zákaznickou péči (centrální CDP + hodnocení + rezervace)",
+        "amount": 150000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Dokončení aplikace pro zaměstnance",
+        "amount": 350000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Přihlášení pro hosty přes Andweb (úpravy pro jednotlivé podskupiny)",
+        "amount": 50000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Dodatečné načtení účtu pro hosty",
+        "amount": 60000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Stránka přihlášení pro držitele firemních kont",
+        "amount": 200000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Rozvoj věrnostního programu (analýzy, průzkumy, konzultace)",
+        "amount": 250000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Nové provozovny (hodnocení – copy, překlad aj.) á 6 000,-",
+        "amount": 24000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Kulinář (grafika/DTP, focení, ...) á 18 000,-",
+        "amount": 72000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Vzdělávání",
+        "amount": 20000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Inspirační cesta",
+        "amount": 8000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Sára Lučanová (a 265)",
+        "amount": 114000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Karolína Kameníková (a 250)",
+        "amount": 66000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Mzdy AMBI CZ",
+        "amount": 1068000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Jana Krofiková (dohoda, a 250)",
+        "amount": 30000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Andrea Nechvátalová (dohoda, a 250)",
+        "amount": 48000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Lucka Janotová (dohoda, a 250)",
+        "amount": 54000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Kateřina Phillips (dohoda, a 300)",
+        "amount": 18000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Natálie Veselá (dohoda, a 230)",
+        "amount": 42000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Další člen týmu hodnocení (dohoda/FA, a 250)",
+        "amount": 24000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "setkání s týmem",
+        "amount": 10000.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "zpracování mezd",
+        "amount": 20400.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "stravenky",
+        "amount": 33600.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "nájemné 1 místo",
+        "amount": 116628.0,
+        "category": "Věrnostní program",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      }
+    ],
+    "Weby správa": [
+      {
+        "name": "Weby správa",
+        "amount": 3294988.0,
+        "category": "Weby správa",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      }
+    ],
+    "Vzducholodě": [
+      {
+        "name": "vzducholo´d I",
+        "amount": 1000000.0,
+        "category": "Vzducholodě",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "vzducholo´d II",
+        "amount": 1860000.0,
+        "category": "Vzducholodě",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      }
+    ],
+    "Systémy a databáze": [
+      {
+        "name": "Systémy, databáze, BC...",
+        "amount": 181588.0,
+        "category": "Systémy a databáze",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      }
+    ],
+    "Jídelní lístky": [
+      {
+        "name": "Jídelní listky",
+        "amount": 720454.0,
+        "category": "Jídelní lístky",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      }
+    ],
+    "Odpisy": [
+      {
+        "name": "Odpisy",
+        "amount": 281616.0,
+        "category": "Odpisy",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      }
+    ],
+    "Provozní (AMBI)": [
+      {
+        "name": "CO ZŮSTALO V AMBI CZ",
+        "amount": 215490.0,
+        "category": "Provozní (AMBI)",
+        "source": "budget",
+        "description": "",
+        "owner": ""
+      }
+    ]
+  },
+  "oak_categories": {
+    "OaK": [
+      {
+        "name": "PR a obsah",
+        "amount": 8772957.0,
+        "category": "OaK",
+        "source": "oak",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Sociální sítě",
+        "amount": 11498380.0,
+        "category": "OaK",
+        "source": "oak",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Email marketing",
+        "amount": 1296940.0,
+        "category": "OaK",
+        "source": "oak",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Account mngmnt",
+        "amount": 4190876.0,
+        "category": "OaK",
+        "source": "oak",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Vedení a administrativa dodávky",
+        "amount": 800185.8,
+        "category": "OaK",
+        "source": "oak",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Rezerva",
+        "amount": 712145.97,
+        "category": "OaK",
+        "source": "oak",
+        "description": "",
+        "owner": ""
+      }
+    ],
+    "OaK Aktivity": [
+      {
+        "name": "Zahraniční presstripy",
+        "amount": 75000.0,
+        "category": "OaK Aktivity",
+        "source": "oak",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Event ke kaprovi",
+        "amount": 65000.0,
+        "category": "OaK Aktivity",
+        "source": "oak",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Prezentační videa a brožury",
+        "amount": 300000.0,
+        "category": "OaK Aktivity",
+        "source": "oak",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Podpora značky JaR",
+        "amount": 150000.0,
+        "category": "OaK Aktivity",
+        "source": "oak",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Štamgast redesign",
+        "amount": 75000.0,
+        "category": "OaK Aktivity",
+        "source": "oak",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Podcast - vývoj (červen/červenec)",
+        "amount": 150000.0,
+        "category": "OaK Aktivity",
+        "source": "oak",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Podcast průběžná tvorba (od srpna)",
+        "amount": 400000.0,
+        "category": "OaK Aktivity",
+        "source": "oak",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Videoprodukce k velkým akcím",
+        "amount": 400000.0,
+        "category": "OaK Aktivity",
+        "source": "oak",
+        "description": "",
+        "owner": ""
+      },
+      {
+        "name": "Zahraniční cesty",
+        "amount": 100000.0,
+        "category": "OaK Aktivity",
+        "source": "oak",
+        "description": "",
+        "owner": ""
+      }
+    ]
+  },
+  "budget_total": 10494240.0,
+  "oak_total": 27271484.77,
+  "oak_fee": 4908867.3,
+  "overall_total": 50258728.3
+}
