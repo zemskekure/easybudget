@@ -69,6 +69,7 @@ function uniqueCategories(items: readonly PlanItem[]): string[] {
 export function TeamView({ items, tracking, onUpdateItem }: Props) {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({})
   const [view, setView] = useState<'overview' | 'assign'>('overview')
+  const detailRefs = useRef<Record<string, HTMLDivElement | null>>({})
 
   const people = buildPeople(items, tracking)
   const allPeople = uniquePeople(items)
@@ -83,7 +84,13 @@ export function TeamView({ items, tracking, onUpdateItem }: Props) {
   }
 
   function toggle(name: string) {
-    setExpanded({ ...expanded, [name]: !expanded[name] })
+    const opening = !expanded[name]
+    setExpanded({ ...expanded, [name]: opening })
+    if (opening) {
+      setTimeout(() => {
+        detailRefs.current[name]?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+      }, 50)
+    }
   }
 
   return (
@@ -178,7 +185,7 @@ export function TeamView({ items, tracking, onUpdateItem }: Props) {
 
           {/* Expanded detail panels */}
           {people.filter(p => !!expanded[p.name]).map(p => (
-            <div key={p.name} className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+            <div key={p.name} ref={el => { detailRefs.current[p.name] = el }} className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
               <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100">
                 <div>
                   <h3 className="text-sm font-bold text-slate-700">{p.name}</h3>
@@ -256,45 +263,56 @@ const PALETTES = [
   { skin: '#F5C6A1', hair: '#784212', shirt: '#84cc16', bg: '#ecfccb' },
 ]
 
-/* ─── Pie Slice — semicircular arc showing % of total ─── */
+/* ─── Donut ring per person — full circle, filled portion shows their % ─── */
 
 function PieSlice({ pct, color }: { pct: number; color: string }) {
-  const w = 120
-  const h = 44
-  const cx = w / 2
-  const cy = h
-  const r = 36
-  const strokeW = 10
-
-  // Arc spans from 180° (left) to 0° (right), proportional to pct
-  const angle = (pct / 100) * Math.PI // 0..PI
-  const startAngle = Math.PI // left side
-  const endAngle = startAngle - angle
-
-  const x1 = cx + r * Math.cos(startAngle)
-  const y1 = cy + r * Math.sin(startAngle)
-  const x2 = cx + r * Math.cos(endAngle)
-  const y2 = cy + r * Math.sin(endAngle)
-  const largeArc = angle > Math.PI ? 1 : 0
+  const size = 90
+  const strokeW = 12
+  const r = (size - strokeW) / 2
+  const circumference = 2 * Math.PI * r
+  const filled = (pct / 100) * circumference
+  const gradId = `grad-${color.replace('#', '')}`
 
   return (
-    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`}>
-      {/* Background arc */}
-      <path
-        d={`M ${cx - r} ${cy} A ${r} ${r} 0 1 1 ${cx + r} ${cy}`}
-        fill="none" stroke="#f1f5f9" strokeWidth={strokeW} strokeLinecap="round"
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="drop-shadow-sm">
+      <defs>
+        {/* 3D-ish gradient */}
+        <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor={color} stopOpacity="1" />
+          <stop offset="100%" stopColor={color} stopOpacity="0.5" />
+        </linearGradient>
+      </defs>
+      {/* Background ring */}
+      <circle
+        cx={size / 2} cy={size / 2} r={r}
+        fill="none" stroke="#f1f5f9" strokeWidth={strokeW}
       />
-      {/* Filled arc */}
+      {/* 3D shadow ring (offset slightly) */}
       {pct > 0.5 && (
-        <path
-          d={`M ${x1} ${y1} A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2}`}
-          fill="none" stroke={color} strokeWidth={strokeW} strokeLinecap="round"
-          opacity="0.85"
+        <circle
+          cx={size / 2} cy={size / 2 + 2} r={r}
+          fill="none" stroke="#00000010" strokeWidth={strokeW + 2}
+          strokeDasharray={`${filled} ${circumference - filled}`}
+          strokeDashoffset={circumference * 0.25}
+          strokeLinecap="round"
+          className="transform -rotate-90 origin-center"
         />
       )}
-      {/* Percentage text */}
-      <text x={cx} y={cy - 8} textAnchor="middle" fill={color} fontSize="13" fontWeight="700">
-        {pct.toFixed(1)}%
+      {/* Filled arc */}
+      {pct > 0.5 && (
+        <circle
+          cx={size / 2} cy={size / 2} r={r}
+          fill="none" stroke={`url(#${gradId})`} strokeWidth={strokeW}
+          strokeDasharray={`${filled} ${circumference - filled}`}
+          strokeDashoffset={circumference * 0.25}
+          strokeLinecap="round"
+          className="transform -rotate-90 origin-center"
+        />
+      )}
+      {/* Center text */}
+      <text x={size / 2} y={size / 2 + 1} textAnchor="middle" dominantBaseline="central"
+        fill={color} fontSize="14" fontWeight="800">
+        {pct.toFixed(0)}%
       </text>
     </svg>
   )
