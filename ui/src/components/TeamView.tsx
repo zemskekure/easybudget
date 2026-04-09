@@ -420,7 +420,9 @@ function PersonSelect({ value, people, onChange }: {
   onChange: (person: string) => void
 }) {
   const [open, setOpen] = useState(false)
+  const [dropUp, setDropUp] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
+  const btnRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -430,13 +432,23 @@ function PersonSelect({ value, people, onChange }: {
     return () => document.removeEventListener('mousedown', handleClick)
   }, [])
 
+  function handleOpen() {
+    if (!open && btnRef.current) {
+      const rect = btnRef.current.getBoundingClientRect()
+      const spaceBelow = window.innerHeight - rect.bottom
+      setDropUp(spaceBelow < 260)
+    }
+    setOpen(!open)
+  }
+
   const idx = people.indexOf(value)
   const palette = idx >= 0 ? PALETTES[idx % PALETTES.length] : null
 
   return (
     <div ref={ref} className="relative">
       <button
-        onClick={() => setOpen(!open)}
+        ref={btnRef}
+        onClick={handleOpen}
         className={`w-full flex items-center gap-2 px-3 py-2 rounded-xl border text-sm text-left transition-colors ${
           value
             ? 'border-slate-200 bg-white hover:bg-slate-50'
@@ -456,7 +468,9 @@ function PersonSelect({ value, people, onChange }: {
         </svg>
       </button>
       {open && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-xl border border-slate-200 shadow-lg z-30 py-1 max-h-60 overflow-auto">
+        <div className={`absolute left-0 right-0 bg-white rounded-xl border border-slate-200 shadow-lg z-30 py-1 max-h-60 overflow-auto ${
+          dropUp ? 'bottom-full mb-1' : 'top-full mt-1'
+        }`}>
           <button
             onClick={() => { onChange(''); setOpen(false) }}
             className="w-full px-3 py-2 text-left text-xs text-slate-400 hover:bg-slate-50 transition-colors"
