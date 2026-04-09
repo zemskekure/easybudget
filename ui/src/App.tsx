@@ -6,8 +6,9 @@ import { SourcePanel } from './components/SourcePanel'
 import { PlanCanvas } from './components/PlanCanvas'
 import { TrackingView } from './components/TrackingView'
 import { DashboardView } from './components/DashboardView'
+import { TeamView } from './components/TeamView'
 
-type Tab = 'builder' | 'tracking' | 'dashboard'
+type Tab = 'builder' | 'tracking' | 'dashboard' | 'team'
 
 export default function App() {
   const [tab, setTab] = useState<Tab>('dashboard')
@@ -120,6 +121,16 @@ export default function App() {
           >
             Sledování
           </button>
+          <button
+            onClick={() => setTab('team')}
+            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
+              tab === 'team'
+                ? 'border-emerald-500 text-emerald-700'
+                : 'border-transparent text-slate-400 hover:text-slate-600'
+            }`}
+          >
+            Tým
+          </button>
         </div>
       </div>
 
@@ -190,12 +201,20 @@ export default function App() {
             />
           )}
         </div>
-      ) : (
+      ) : tab === 'dashboard' ? (
         <div className="flex-1 overflow-auto p-6">
           <DashboardView
             items={plan}
             sources={sources}
             tracking={tracking}
+          />
+        </div>
+      ) : (
+        <div className="flex-1 overflow-auto p-6">
+          <TeamView
+            items={plan}
+            tracking={tracking}
+            onUpdateItem={handleUpdate}
           />
         </div>
       )}

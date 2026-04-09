@@ -14,6 +14,7 @@ export interface PlanItem {
   note: string
   category: string     // grouping on the right side
   sourceRef?: string   // "category::name" if dragged from source
+  assignedTo?: string  // person responsible for this item
 }
 
 export interface SourceData {
